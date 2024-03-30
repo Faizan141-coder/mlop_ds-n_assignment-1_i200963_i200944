@@ -13,5 +13,4 @@ RUN pip install Flask numpy scikit-learn joblib
 # Expose port 5000 to the outside world
 EXPOSE 5000
 
-# Define the command to run the Flask application
 CMD ["python", "heart_disease_prediction.py"]
