@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.model_selection import train_test_split
@@ -13,23 +12,24 @@ import joblib
 
 # Importing Dataset
 dataset = pd.read_csv('heart.csv')
-x = dataset.iloc[:,:-1].values
-y = dataset.iloc[:,-1].values
+x = dataset.iloc[:, :-1].values
+y = dataset.iloc[:, -1].values
 
 # Data Preprocessing
 # Label Encoding
-le1 = LabelEncoder() 
-le2 = LabelEncoder() 
-le6 = LabelEncoder() 
-le8 = LabelEncoder() 
-le10 = LabelEncoder() 
-x[:,1] = le1.fit_transform(x[:,1])
-x[:,2] = le2.fit_transform(x[:,2])
-x[:,6] = le6.fit_transform(x[:,6])
-x[:,8] = le8.fit_transform(x[:,8])
-x[:,10] = le10.fit_transform(x[:,10])
+le1 = LabelEncoder()
+le2 = LabelEncoder()
+le6 = LabelEncoder()
+le8 = LabelEncoder()
+le10 = LabelEncoder()
+x[:, 1] = le1.fit_transform(x[:, 1])
+x[:, 2] = le2.fit_transform(x[:, 2])
+x[:, 6] = le6.fit_transform(x[:, 6])
+x[:, 8] = le8.fit_transform(x[:, 8])
+x[:, 10] = le10.fit_transform(x[:, 10])
 
 # Splitting Dataset into Training set and Test set
+# flake8: noqa
 X_train, X_test, Y_train, Y_test = train_test_split(x, y, test_size=0.2, random_state=0)
 
 # Feature Scaling
@@ -38,7 +38,7 @@ X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
 # Training Dataset
-## Training with Random Forest Classifier
+# Training with Random Forest Classifier
 model_randomforest = RandomForestClassifier()
 model_randomforest.fit(X_train, Y_train)
 

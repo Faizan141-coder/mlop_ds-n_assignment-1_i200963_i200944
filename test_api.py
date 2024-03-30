@@ -1,5 +1,6 @@
 import requests
 
+
 def test_prediction_endpoint():
     url = 'http://127.0.0.1:5000/predict'  # Update the URL if needed
     data = {
@@ -20,7 +21,9 @@ def test_prediction_endpoint():
     if prediction == 'Person Not Having Heart Disease':
         print("Test case passed: Person Not Having Heart Disease")
     else:
+        # flake8: noqa
         print(f"Test case failed: Prediction was {prediction}, expected Person Not Having Heart Disease")
+
 
 if __name__ == '__main__':
     test_prediction_endpoint()
