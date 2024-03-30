@@ -4,7 +4,7 @@ import numpy as np
 
 app = Flask(__name__)
 
-# Load the trained model
+# Load the trained modell
 model = joblib.load('heart_failure_pred_model.pkl')
 
 
